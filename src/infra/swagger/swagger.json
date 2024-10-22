@@ -187,6 +187,15 @@
                 "Email": {
                     "type": "string"
                 },
+                "Cidade": {
+                    "type": "string"
+                },
+                "Uf": {
+                    "type": "string"
+                },
+                "Selecao": {
+                    "type": "string"
+                },
                 "Formulario": {
                     "type": "string"
                 }

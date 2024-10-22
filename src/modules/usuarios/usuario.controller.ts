@@ -20,6 +20,15 @@ export const validarGravacao = (body: any, callback: Function) => {
     else if (body.Email.includes(';')) {
         callback(false, 'O e-mail do usuário não pode conter ";"')
     }    
+    else if (body.Uf && body.Nome.includes(';')) {
+        callback(false, 'A UF do usuário não pode conter ";"')
+    }    
+    else if (body.Cidade && body.Telefone.includes(';')) {
+        callback(false, 'A cidade do usuário não pode conter ";"')
+    }    
+    else if (body.Selecao && body.Selecao.includes(';')) {
+        callback(false, 'A seleção do usuário não pode conter ";"')
+    }    
     else {
         callback(true, null)
     }

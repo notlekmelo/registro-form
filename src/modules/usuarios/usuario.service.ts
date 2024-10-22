@@ -10,9 +10,9 @@ export const gravarRespostaFormulario = (body: any, callback: Function) => {
         }
         let caminhoCompleto = path.join(caminhoArquivo, body.Formulario + '.csv')
         if (!fs.existsSync(caminhoCompleto)) {
-            fs.writeFileSync(caminhoCompleto, 'Nome;Telefone;E-mail')
+            fs.writeFileSync(caminhoCompleto, 'Nome;Telefone;E-mail;Cidade;UF;Selecao')
         }
-        fs.appendFileSync(caminhoCompleto, `\n${body.Nome};${body.Telefone};${body.Email}`)
+        fs.appendFileSync(caminhoCompleto, `\n${body.Nome};${body.Telefone};${body.Email};${body.Cidade};${body.Uf};${body.Selecao}`)
         callback(null, true, 'Gravado com sucesso.')
     }
     catch(err){
@@ -39,7 +39,7 @@ export const retornaFormulario = (formulario: string, callback: Function) => {
 export const reset = (formulario: string, callback: Function) => {
     try {
         let caminhoCompleto = path.join(caminhoArquivo, formulario + '.csv')
-        fs.writeFileSync(caminhoCompleto, 'Nome;Telefone;E-mail')
+        fs.writeFileSync(caminhoCompleto, 'Nome;Telefone;E-mail;Cidade;UF;Selecao')
         callback(null);
     }
     catch (err) {
