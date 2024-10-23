@@ -12,7 +12,7 @@ export const gravarRespostaFormulario = (body: any, callback: Function) => {
         if (!fs.existsSync(caminhoCompleto)) {
             fs.writeFileSync(caminhoCompleto, 'Nome;Telefone;E-mail;Cidade;UF;Selecao')
         }
-        fs.appendFileSync(caminhoCompleto, `\n${body.Nome};${body.Telefone};${body.Email};${body.Cidade};${body.Uf};${body.Selecao}`)
+        fs.appendFileSync(caminhoCompleto, `\n${body.Nome};${body.Telefone};${body.Email};${body.Cidade};${body.Uf};${body.Selecao}`, {encoding: "utf8"})
         callback(null, true, 'Gravado com sucesso.')
     }
     catch(err){
